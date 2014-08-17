@@ -19,7 +19,7 @@ rake_name = "ts"
 # run by the time this executes on the utility instance. If that occurs
 # just deploy again and the recipe should succeed.
 
-#utility_name = "utility"
+utility_name = "app_master"
 
 # If you want to have scheduled reindexes in cron, enter the minute
 # interval here. This is passed directly to cron via /, so you should
