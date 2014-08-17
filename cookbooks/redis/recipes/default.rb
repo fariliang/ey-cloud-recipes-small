@@ -4,7 +4,7 @@
 #
 
 if ['util'].include?(node[:instance_role])
-  if node[:name] == 'utility' || ['solo'].include?(node[:instance_role])
+  if node[:name] == 'app_master' || ['solo'].include?(node[:instance_role])
 
     sysctl "Enable Overcommit Memory" do
       variables 'vm.overcommit_memory' => 1
