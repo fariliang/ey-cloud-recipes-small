@@ -19,7 +19,7 @@ rake_name = "ts"
 # run by the time this executes on the utility instance. If that occurs
 # just deploy again and the recipe should succeed.
 
-utility_name = "app_master"
+#utility_name = "app_master"
 
 # If you want to have scheduled reindexes in cron, enter the minute
 # interval here. This is passed directly to cron via /, so you should
@@ -34,7 +34,7 @@ cron_interval = 20 #If this is not set your data will NOT be indexed
 if ! File.exists?("/data/#{appname}/current")
   Chef::Log.info "Sphinx was not configured because the app must be deployed first.  Please deploy it then re-run custom recipes."
 else
-  if utility_name
+  if utility_name != nil
     sphinx_host = node[:utility_instances].find {|u| u[:name] == utility_name }[:hostname]
     if ['solo', 'app', 'app_master'].include?(node[:instance_role])
       run_for_app(appname) do |app_name, data|
